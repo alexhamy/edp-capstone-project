@@ -5,6 +5,7 @@ import '../components-css/NavigationHeader.css';
 const NavigationHeader = ({ cartItemCount = 0 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -16,8 +17,16 @@ const NavigationHeader = ({ cartItemCount = 0 }) => {
     if (isMenuOpen) setIsMenuOpen(false);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log(searchTerm)
+  } 
+
+  const handleSearchTermChange = (event) => {
+    setSearchTerm(event.target.value)
+  }
   return (
-    <header className="store-header">
+    <div className="store-header">
       <div className="header-container">
         {/* Logo */}
         <div className="logo">
@@ -52,8 +61,11 @@ const NavigationHeader = ({ cartItemCount = 0 }) => {
                   type="text" 
                   placeholder="Search products..." 
                   aria-label="Search products"
+                  value={searchTerm}
+                  onChange={handleSearchTermChange}
+                  onKeyDown={(event) => {if(event.key === "Enter") handleSubmit(event);}}
                 />
-                <button type="submit" aria-label="Submit search">Search</button>
+                <button type="submit" aria-label="Submit search" onClick={handleSubmit}>Search</button>
               </div>
             )}
           </div>
@@ -85,11 +97,10 @@ const NavigationHeader = ({ cartItemCount = 0 }) => {
             <li><Link to="/" onClick={toggleMenu}>Home</Link></li>
             <li><Link to="/products" onClick={toggleMenu}>All Products</Link></li>
             <li><Link to="/categories" onClick={toggleMenu}>Categories</Link></li>
-
           </ul>
         </nav>
       )}
-    </header>
+    </div>
   );
 };
 

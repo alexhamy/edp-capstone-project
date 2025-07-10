@@ -1,9 +1,9 @@
 /* NavigationHeader.css */
 .store-header {
     background-color: #ffffff;
-    position: absolute;
+    /* position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
-    z-index: 1000;
+    z-index: 1000; */
   }
   
   .header-container {
@@ -11,7 +11,7 @@
     align-items: center;
     text-align: center;
     justify-content: space-between;
-    width: 95vw;
+    width: 100%;
     padding:10px;
     height: 70px;
   }
