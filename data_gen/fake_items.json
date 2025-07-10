@@ -1,7 +1,7 @@
 {
     "items": [
         {
-            "name": "",
+            "id": 1,
             "price": 41,
             "type": "dress",
             "material": "linen",
@@ -9,7 +9,7 @@
             "rating": 2.7
         },
         {
-            "name": "",
+            "id": 2,
             "price": 56,
             "type": "sweater",
             "material": "polyester",
@@ -17,7 +17,7 @@
             "rating": 2.0
         },
         {
-            "name": "",
+            "id": 3,
             "price": 25,
             "type": "dress",
             "material": "polyester",
@@ -25,7 +25,7 @@
             "rating": 0.6
         },
         {
-            "name": "",
+            "id": 4,
             "price": 38,
             "type": "hoodie",
             "material": "cashmere",
@@ -33,7 +33,7 @@
             "rating": 2.6
         },
         {
-            "name": "",
+            "id": 5,
             "price": 91,
             "type": "blouse",
             "material": "cotton",

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import NavigationHeader from './components/navheader';
-import HomePage from './components-css/HomePage';
+import HomePage from './components/HomePage';
 function App() {
   
 
