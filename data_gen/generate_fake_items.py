@@ -1,14 +1,13 @@
 import random
 import json
-from generate_item import gen_item
+from generate_item import gen_items
 
 DATA_SIZE = 5
 ORDER_SIZE = 5
 
-orders = []
+items = gen_items(1000)
 
-for i in range(DATA_SIZE):
-    orders.append(gen_item())
+
 
 with open("fake_items.json", "w", encoding='utf-8') as f:
-    json.dump({"items": orders}, f, indent=4)
+    json.dump({"items": items}, f, indent=4)
