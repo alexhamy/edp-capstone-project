@@ -38,7 +38,7 @@ function App(props) {
         <Route path="/products/:page" element={<ListPage data={data}/>}/>
         <Route path="/product/:id" element={<ClothingDetail data={data} cart = {cart} setCart={setCart}/>}/>
         <Route path="/cart/" element={<CartPage cart = {cart} setCart={setCart}/>}/>
-        <Route path="/checkout" element={<CheckoutPage data={cart}/>}/>
+        <Route path="/checkout" element={<CheckoutPage data={cart} setCart={setCart}/>}/>
         <Route path="/categories/" element={<CategoryPage data = {data}/>}/>
         </Routes>
       </Router>
