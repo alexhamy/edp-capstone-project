@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ClothingCard from "./ClothingCard";
 export default function CartPage(props){
     let navigate = useNavigate()
-    console.log(props.cart)
+    // console.log(props.cart)
     const [total, setTotal] = useState(0)
     useEffect(() => {
         let sum = 0;

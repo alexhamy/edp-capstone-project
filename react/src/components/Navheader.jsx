@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../components-css/NavigationHeader.css';
 
 const NavigationHeader = (props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const cartItemCount = props.cart.length
+  const [localSearchTerm, setLocalSearchTerm] = useState('')
+  let navigate = useNavigate();
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     if (isSearchOpen) setIsSearchOpen(false);
@@ -18,7 +20,8 @@ const NavigationHeader = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(props.searchTerm)
+    props.setSearchTerm(localSearchTerm)
+    navigate('/search')
   } 
 
   const handleSearchTermChange = (event) => {
@@ -60,8 +63,8 @@ const NavigationHeader = (props) => {
                   type="text" 
                   placeholder="Search products..." 
                   aria-label="Search products"
-                  value={props.searchTerm}
-                  onChange={handleSearchTermChange}
+                  value={localSearchTerm}
+                  onChange={(event) => setLocalSearchTerm(event.target.value)}
                   onKeyDown={(event) => {if(event.key === "Enter") handleSubmit(event);}}
                 />
                 <button type="submit" aria-label="Submit search" onClick={handleSubmit}>Search</button>

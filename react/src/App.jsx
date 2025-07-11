@@ -8,6 +8,7 @@ import ClothingDetail from './components/ClothingDetail';
 import CartPage from './components/CartPage';
 import CategoryPage from './components/CategoryPage';
 import CheckoutPage from './components/CheckoutPage';
+import SearchPage from './components/SearchPage';
 
 function App(props) {
   const [data, setData] = useState([]);
@@ -26,7 +27,7 @@ function App(props) {
       })
     }
     getData();
-  }, [])
+  },[])
   return (
     
     <div style={{display:"flex", width:'95%', flexDirection:"column", justifySelf:'center'}}>
@@ -40,6 +41,7 @@ function App(props) {
         <Route path="/cart/" element={<CartPage cart = {cart} setCart={setCart}/>}/>
         <Route path="/checkout" element={<CheckoutPage data={cart} setCart={setCart}/>}/>
         <Route path="/categories/" element={<CategoryPage data = {data}/>}/>
+        <Route path="/search" element={<SearchPage data = {data} searchTerm = {searchTerm}/>}/>
         </Routes>
       </Router>
     </div>
