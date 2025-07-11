@@ -5,7 +5,6 @@ import '../components-css/NavigationHeader.css';
 const NavigationHeader = (props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
   const cartItemCount = props.cart.length
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -19,11 +18,11 @@ const NavigationHeader = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(searchTerm)
+    console.log(props.searchTerm)
   } 
 
   const handleSearchTermChange = (event) => {
-    setSearchTerm(event.target.value)
+    props.setSearchTerm(event.target.value)
   }
   return (
     <div className="store-header">
@@ -63,7 +62,7 @@ const NavigationHeader = (props) => {
                   type="text" 
                   placeholder="Search products..." 
                   aria-label="Search products"
-                  value={searchTerm}
+                  value={props.searchTerm}
                   onChange={handleSearchTermChange}
                   onKeyDown={(event) => {if(event.key === "Enter") handleSubmit(event);}}
                 />

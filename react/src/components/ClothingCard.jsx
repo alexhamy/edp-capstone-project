@@ -2,7 +2,7 @@ import { useNavigate } from "react-router"
 
 export default function ClothingCard(props){
     const item = props.item
-    console.log(item)
+    //console.log(item)
     const rating = Math.floor(item.Rating)
     let navigate = useNavigate()
     let stars=[]
