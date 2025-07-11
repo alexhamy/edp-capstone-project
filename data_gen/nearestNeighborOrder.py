@@ -65,3 +65,18 @@ print("\nNearest neighbors (individual items) for the order:")
 nearest_neighbors_items = [flattened_orders[i] for i in indices[0]]  # Use flattened_orders
 for neighbor in nearest_neighbors_items:
     print(neighbor)
+
+
+import pickle
+
+# Combine the model and features into a single dictionary
+data_to_save = {
+    "model": nn,
+    "features": item_features
+}
+
+# Save the combined data to a single .pkl file
+with open("combined_data.pkl", "wb") as combined_file:
+    pickle.dump(data_to_save, combined_file)
+
+print("Model and features have been saved to combined_data.pkl")
