@@ -15,7 +15,6 @@ export default function ListPage(props) {
     useEffect(() => {
         if(data.length > 0 && start < data.length) setVisibleClothes(generateRange(start, end < data.length ? end : data.length));
     },[props, page])
-    console.log(visibleClothes)
     return(
         <div style={{display:'flex', flexDirection:'column'}}>
             <div style={{display:"flex", flexDirection:'row'}}>
