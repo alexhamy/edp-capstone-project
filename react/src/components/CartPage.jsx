@@ -5,6 +5,7 @@ export default function CartPage(props){
     let navigate = useNavigate()
     // console.log(props.cart)
     const [total, setTotal] = useState(0)
+    const [suggestedItems, setSuggestedItems] = useState([])
     useEffect(() => {
         let sum = 0;
         if(props.cart?.length > 0){
@@ -30,9 +31,9 @@ export default function CartPage(props){
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-
                 const data = await response.json();
-                console.log(data);
+                console.log(data.data);
+                setSuggestedItems(data.data)
             } 
         catch (error) {
             console.error("Error posting data", error);
@@ -46,8 +47,12 @@ export default function CartPage(props){
             <h2>Items in cart:</h2>
             <h2>Total: ${total}</h2>
             <button style={{width: '100%'}} onClick= {() => navigate("/checkout")}>Checkout</button>
-            <div style={{display:'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows:'repeat(10, 1fr)', gridColumnGap:'0px', gridRowGap:'0px'}}>
+            <div style={{display:'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows:'repeat(1, 1fr)', gridColumnGap:'0px', gridRowGap:'0px'}}>
                 {props.cart?.map((selected) => {return (<ClothingCard item={selected}/>)})}
+            </div>
+            <h2>Consider these items:</h2>
+            <div style={{display:'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows:'repeat(1, 1fr)', gridColumnGap:'0px', gridRowGap:'0px'}}>
+                {suggestedItems?.map((selected) => {return (<ClothingCard item={selected}/>)})}
             </div>
         </div>
         
