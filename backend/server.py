@@ -34,7 +34,7 @@ def fetch_data():
 
     return jsonify(fetched_data)
 
-@app.route('/api/cart', methods=['POST'])
+@app.route('/api/checkout', methods=['POST'])
 def post_cart():
     
     data = request.json
@@ -54,14 +54,14 @@ def post_cart():
         "billing_info": data["billing_info"],
         "date": cur_date.isoformat()
     }
+
     try:
         billing_collection.insert_one(billing_format)
         records_collection.insert_one(records_format)
-
     except TypeError:
         raise ValueError("Error in purchase backend")
 
-    return "successfully completed perchase"
+    return jsonify("successfully completed perchase")
 
 
 if __name__ == '__main__':
