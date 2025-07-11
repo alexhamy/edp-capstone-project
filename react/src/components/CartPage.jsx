@@ -5,7 +5,7 @@ export default function CartPage(props){
     const [total, setTotal] = useState(0)
     useEffect(() => {
         let sum = 0;
-        if(props.cart.length > 0){
+        if(props.cart?.length > 0){
             props.cart.forEach((item) => {
                 sum += item.Price
             })

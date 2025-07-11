@@ -14,7 +14,7 @@ export default function HomePage(props) {
         <div style={{display:"flex", flexDirection:"column"}}>
             <h2>Welcome to Cool Clothes!</h2>
             <h3>Check out our featured items!</h3>
-            <div style={{display:"flex", flexDirection:"row"}}>
+            <div style={{display:"flex", flexDirection:"row", marginRight:'auto', marginLeft:'auto'}}>
                 {selectedClothes.map((selected) => <ClothingCard item={featured[selected]} key={selected}/>)}
             </div>
         </div>

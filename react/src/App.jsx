@@ -6,10 +6,12 @@ import HomePage from './components/HomePage';
 import ListPage from './components/ListPage';
 import ClothingDetail from './components/ClothingDetail';
 import CartPage from './components/CartPage';
+import CategoryPage from './components/CategoryPage';
 
 function App(props) {
   const [data, setData] = useState([]);
   const [cart, setCart] = useState([]);
+  const [searchTerm, setSearchTerm] = useState([])
   useEffect(() => {
     const getData = async () => {
       await fetch("http://localhost:5000/api").then((response) =>{
@@ -29,12 +31,13 @@ function App(props) {
     <div style={{display:"flex", width:'95%', flexDirection:"column", justifySelf:'center'}}>
       
       <Router>
-        <NavigationHeader cart={cart}></NavigationHeader>
+        <NavigationHeader cart={cart} searchTerm = {searchTerm} setSearchTerm = {setSearchTerm}></NavigationHeader>
         <Routes>
         <Route path="/" element={<HomePage data={data}/>}/>
         <Route path="/products/:page" element={<ListPage data={data}/>}/>
         <Route path="/product/:id" element={<ClothingDetail data={data} cart = {cart} setCart={setCart}/>}/>
         <Route path="/cart/" element={<CartPage cart = {cart} setCart={setCart}/>}/>
+        <Route path="/categories/" element={<CategoryPage data = {data}/>}/>
         </Routes>
       </Router>
     </div>
