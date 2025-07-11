@@ -2,8 +2,9 @@ import random
 import json
 from generate_item import gen_items
 
-DATA_SIZE = 5
-ORDER_SIZE = 1000
+# Constants for the number of orders and maximum order size
+NUM_ORDERS = 1000
+MAX_ORDER_SIZE = 5
 
 # Generate items
 items = gen_items(1000)
@@ -34,7 +35,7 @@ for item in items:
 # Generate orders with patterns or without any grouping
 orders = []
 
-for _ in range(DATA_SIZE):
+for _ in range(NUM_ORDERS):
     # Decide whether to group or not
     if random.choice([True, False]):
         # Randomly choose a grouping attribute
@@ -42,23 +43,23 @@ for _ in range(DATA_SIZE):
         
         if grouping_choice == 'type':
             chosen_type = random.choice(list(items_by_type.keys()))
-            order_size = random.randint(1, ORDER_SIZE)
+            order_size = random.randint(1, MAX_ORDER_SIZE)
             order_items = random.sample(items_by_type[chosen_type], min(order_size, len(items_by_type[chosen_type])))
         elif grouping_choice == 'season':
             chosen_season = random.choice(list(items_by_season.keys()))
-            order_size = random.randint(1, ORDER_SIZE)
+            order_size = random.randint(1, MAX_ORDER_SIZE)
             order_items = random.sample(items_by_season[chosen_season], min(order_size, len(items_by_season[chosen_season])))
         elif grouping_choice == 'material':
             chosen_material = random.choice(list(items_by_material.keys()))
-            order_size = random.randint(1, ORDER_SIZE)
+            order_size = random.randint(1, MAX_ORDER_SIZE)
             order_items = random.sample(items_by_material[chosen_material], min(order_size, len(items_by_material[chosen_material])))
         elif grouping_choice == 'category':
             chosen_category = random.choice(list(items_by_category.keys()))
-            order_size = random.randint(1, ORDER_SIZE)
+            order_size = random.randint(1, MAX_ORDER_SIZE)
             order_items = random.sample(items_by_category[chosen_category], min(order_size, len(items_by_category[chosen_category])))
     else:
         # No grouping, select random items
-        order_size = random.randint(1, ORDER_SIZE)
+        order_size = random.randint(1, MAX_ORDER_SIZE)
         order_items = random.sample(items, order_size)
     
     orders.append(order_items)
@@ -67,4 +68,4 @@ for _ in range(DATA_SIZE):
 with open("fake_orders_grouped.json", "w", encoding='utf-8') as f:
     json.dump({"orders": orders}, f, indent=4)
 
-print("Generated orders with and without patterns.")
+print("Generated 1000 orders with and without patterns.")
