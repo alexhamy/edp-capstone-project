@@ -13,7 +13,10 @@ export default function CartPage(props){
             })
         }
         setTotal(sum)
-    },[props])        
+    },[props])
+    useEffect(() => {
+        
+    },[props.cart])
     return(
         <div>
             <h2>Items in cart:</h2>
