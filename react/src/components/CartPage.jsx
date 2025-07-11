@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ClothingCard from "./ClothingCard";
 import { useNavigate } from "react-router";
 export default function CartPage(props){
@@ -14,6 +15,8 @@ export default function CartPage(props){
         }
         setTotal(sum)
     },[props])
+
+    let navigate = useNavigate();         
     return(
         <div>
             <h2>Items in cart:</h2>
