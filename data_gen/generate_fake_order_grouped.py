@@ -1,13 +1,14 @@
 import random
 import json
-from generate_item import gen_items
 
 # Constants for the number of orders and maximum order size
 NUM_ORDERS = 1000
 MAX_ORDER_SIZE = 5
 
-# Generate items
-items = gen_items(1000)
+# Load items from fake_items.json
+with open("fake_items.json", "r", encoding='utf-8') as f:
+    data = json.load(f)
+    items = data['items']  # Assume the JSON structure has a key "items"
 
 # Group items by type, season, material, and category
 items_by_type = {}
