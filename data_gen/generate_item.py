@@ -34,6 +34,15 @@ category =[
     "Semi-Formal",
     "Casual"
 ]
+size =[
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XS",
+    "XXL",
+    "3XL"
+]
 description = "Lorem ipsum dolor sit amet consectetur adipiscing elit. " \
 "Quisque faucibus ex sapien vitae pellentesque sem placerat. " \
 "In id cursus mi pretium tellus duis convallis. " \
@@ -56,7 +65,8 @@ def gen_items(num_items):
             "Season": random.choice(season),
             "Rating": round(random.random() * 5, 1),
             "Category":random.choice(category),
-            "Description":description
+            "Description":description,
+            "Size": random.choice(size)
         }
         items.append(item)
 

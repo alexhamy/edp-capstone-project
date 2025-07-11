@@ -24,9 +24,7 @@ if not data:
 
 @app.route('/api', methods=['GET'])
 def fetch_data():
-
     fetched_data = list(items_collection.find())
-
     for item in fetched_data:
         if '_id' in item:
             item['_id'] = str(item['_id'])
