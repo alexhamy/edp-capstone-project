@@ -52,7 +52,7 @@ export default function CheckoutPage(props) {
                 const data = await response.json();
                 console.log(data);
                 // Handle post submission logic (like showing a success message)
-                //navigate('/')
+                navigate('/')
                 props.setCart([])
             } 
         catch (error) {

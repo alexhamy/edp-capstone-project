@@ -30,9 +30,9 @@ if not data:
         items_collection.insert_many(json_data["items"])
 
 
-model_filename = "model_path.pkl"
-with open(model_filename, 'rb') as file:
-    loaded_model = pickle.load(file)
+# model_filename = "model_path.pkl"
+# with open(model_filename, 'rb') as file:
+#     loaded_model = pickle.load(file)
 
 
 @app.route('/api', methods=['GET'])
@@ -74,8 +74,9 @@ def post_cart():
     return jsonify("successfully completed perchase")
 
 @app.route('/api/model', methods=['POST'])
-def post_cart():
+def post_model():
     items = request.json  # Use an existing item for demonstration
+    return jsonify("Success")
 
 
    

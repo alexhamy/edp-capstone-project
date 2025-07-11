@@ -15,7 +15,31 @@ export default function CartPage(props){
         setTotal(sum)
     },[props])
     useEffect(() => {
-        
+        const orderBody = props.cart
+        console.log(orderBody)
+        async function getData(){
+            try {
+                const response = await fetch(`http://localhost:5000/api/model`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(orderBody),
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                console.log(data);
+            } 
+        catch (error) {
+            console.error("Error posting data", error);
+            // Handle errors here
+        }
+        }
+        getData();
     },[props.cart])
     return(
         <div>
