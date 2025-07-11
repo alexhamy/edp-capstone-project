@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import NavigationHeader from './components/navheader';
 import HomePage from './components/HomePage';
 import ListPage from './components/ListPage';
+import CheckoutPage from './components/CheckoutPage';
 function App(props) {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -29,6 +30,8 @@ function App(props) {
         <Routes>
         <Route path="/" element={<HomePage data={data}/>}/>
         <Route path="/products/:page" element={<ListPage data={data}/>}/>
+        <Route path="/checkout" element={<CheckoutPage data={data}/>}/>
+
         </Routes>
       </Router>
     </div>
