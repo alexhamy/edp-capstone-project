@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import '../components-css/NavigationHeader.css';
 
 var test_items = [
     {
@@ -90,6 +91,7 @@ export default function ListPage(props) {
                             name="address"
                             value={checkoutData.address}
                             onChange={handleChange}
+                            placeholder="Enter your address"
                         />
                     </div>
                     <div className="form-group">
@@ -101,12 +103,28 @@ export default function ListPage(props) {
                             name="payment"
                             value={checkoutData.payment}
                             onChange={handleChange}
+                            placeholder="Enter your payment"
+
                         />
                     </div>
                     
                     <button type="submit" className="btn btn-primary">
                         Checkout
                     </button>
+                    
+                    <div className="order-summary">
+                        <h3>Order Summary</h3>
+                        {checkoutData.items.map(item => (
+                            <div key={item.id} className="order-item">
+                                <span>{item.Type}</span>
+                                <span>${item.Price.toFixed(2)}</span>
+                            </div>
+                        ))}
+                        <div className="order-total">
+                            <span>Total</span>
+                            <span>${checkoutData.items.reduce((sum, item) => sum + item.Price, 0).toFixed(2)}</span>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
