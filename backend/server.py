@@ -6,6 +6,10 @@ import json
 import pandas as pd
 from datetime import datetime
 import uuid
+import pickle
+import numpy as np
+import pandas as pd
+import json
 
 client = MongoClient('mongodb://localhost:27017/')
 db = client["edp_capstone"]
@@ -24,6 +28,12 @@ if not data:
     with open(data_file_path, 'r') as file:
         json_data = json.load(file)
         items_collection.insert_many(json_data["items"])
+
+
+model_filename = "model_path.pkl"
+with open(model_filename, 'rb') as file:
+    loaded_model = pickle.load(file)
+
 
 @app.route('/api', methods=['GET'])
 def fetch_data():
@@ -62,6 +72,13 @@ def post_cart():
         raise ValueError("Error in purchase backend")
 
     return jsonify("successfully completed perchase")
+
+@app.route('/api/model', methods=['POST'])
+def post_cart():
+    items = request.json  # Use an existing item for demonstration
+
+
+   
 
 
 if __name__ == '__main__':
