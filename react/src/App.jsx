@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import './App.css'
+
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import NavigationHeader from './components/navheader';
 import HomePage from './components/HomePage';
+import ListPage from './components/ListPage';
 function App(props) {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -21,12 +22,13 @@ function App(props) {
   }, [])
   return (
     
-    <div style={{display:"flex", width:'100%', flexDirection:"column"}}>
+    <div style={{display:"flex", width:'95%', flexDirection:"column", justifySelf:'center'}}>
       
       <Router>
         <NavigationHeader></NavigationHeader>
         <Routes>
         <Route path="/" element={<HomePage data={data}/>}/>
+        <Route path="/products/:page" element={<ListPage data={data}/>}/>
         </Routes>
       </Router>
     </div>

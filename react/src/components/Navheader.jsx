@@ -39,7 +39,7 @@ const NavigationHeader = ({ cartItemCount = 0 }) => {
         <nav className="desktop-nav">
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/products">All Products</Link></li>
+            <li><Link to="/products/1">All Products</Link></li>
             <li><Link to="/categories">Categories</Link></li>
           </ul>
         </nav>
@@ -95,7 +95,7 @@ const NavigationHeader = ({ cartItemCount = 0 }) => {
         <nav className="mobile-nav">
           <ul>
             <li><Link to="/" onClick={toggleMenu}>Home</Link></li>
-            <li><Link to="/products" onClick={toggleMenu}>All Products</Link></li>
+            <li><Link to="/products/1" onClick={toggleMenu}>All Products</Link></li>
             <li><Link to="/categories" onClick={toggleMenu}>Categories</Link></li>
           </ul>
         </nav>

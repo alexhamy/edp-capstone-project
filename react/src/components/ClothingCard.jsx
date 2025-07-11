@@ -11,10 +11,10 @@ export default function ClothingCard(props){
         stars.push(<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Ic_star_outline_24px.svg/240px-Ic_star_outline_24px.svg.png" style={{height:'24px', width:'24px'}}/>)
     }
     return(
-        <div style={{border: "1px solid black", borderRadius:"20px", margin:"10px", padding:"5px", flexDirection:"column"}}>
+        <div style={{border: "1px solid black", borderRadius:"20px", margin:"10px", padding:"5px", flexDirection:"column", width:"300px"}}>
             <h3>{item.Category + " " + item.Material + " " + item.Season + " " + item.Type}</h3>
             <h4>Price: ${item.Price}</h4>
-            <h4>Price: ${item.Price}</h4>
+            <h4>Size: {item.Size}</h4>
             {stars}
         </div>
         

@@ -24,7 +24,6 @@ if not data:
 def fetch_data():
 
     fetched_data = list(collection.find())
-
     for item in fetched_data:
         if '_id' in item:
             item['_id'] = str(item['_id'])
