@@ -41,7 +41,7 @@ id_normalized = scaler.fit_transform([[item['id']] for order in orders for item 
 item_features = np.hstack((material_encoded, price_normalized, id_normalized))
 
 # Fit Nearest Neighbors model using individual item features
-nn = NearestNeighbors(n_neighbors=5)
+nn = NearestNeighbors(n_neighbors=20)
 nn.fit(item_features)
 
 # Function to aggregate features for an order
@@ -131,7 +131,7 @@ def post_model():
     print(indices)
     flattened_orders = [item for order in orders for item in order]
     nearest_neighbors_items = [flattened_orders[i] for i in indices[0]]  # Use flattened_orders    
-    return jsonify({"message":'success', 'data':[dict(t) for t in {tuple(d.items()) for d in nearest_neighbors_items}]})
+    return jsonify({"message":'success', 'data':[dict(t) for t in {tuple(d.items()) for d in nearest_neighbors_items}][:4]})
 
 
    
