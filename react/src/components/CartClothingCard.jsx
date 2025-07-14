@@ -21,7 +21,7 @@ export default function CartClothingCard(props){
     }
     return(
         <div style={{border: "1px solid black", borderRadius:"20px", margin:"10px", padding:"5px", flexDirection:"column", width:"300px", height:'250px' }}>
-            <h3 style={{height:'30px', cursor:'pointer'}} onClick={handleClick}>{item.Category + " " + item.Material + " " + item.Season + " " + item.Type}</h3>
+            <h3 style={{height:'30px', cursor:'pointer'}} onClick={handleClick}>{`${item.Category} ${item.Material} ${item.Season} ${item.Type}`}</h3>
             <h4>Price: ${item.Price}</h4>
             <h4>Size: {item.Size}</h4>
             <h4>Category: {item.Category}</h4>

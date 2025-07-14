@@ -20,7 +20,7 @@ export default function ClothingDetail(props) {
     return(
         <div style={{display:'flex', flexDirection:'column', textAlign:'left'}}>
             <div style={{display:'flex', flexDirection:'row'}}>
-                <h2>{item?.Category + " " + item?.Material + " " + item?.Season + " " + item?.Type}</h2>
+                <h2>{`${item?.Category} ${item?.Material} ${item?.Season} ${item?.Type}`}</h2>
                 <div style={{display:'flex', flexDirection:'column', marginLeft:'auto', marginRight:'0px'}}>
                     <h3>Rating: {item?.Rating}</h3>
                     <div style={{flexDirection:"row"}}> {stars}</div>
