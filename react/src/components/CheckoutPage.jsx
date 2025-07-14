@@ -2,29 +2,12 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 
 export default function CheckoutPage(props) {
-    // const [checkoutData, setCheckoutData] = useState({
-    //     "billing_info": {
-    //         "address": "",
-    //         "payment": ""},
-    //     "items": []
-    // });
     const [payment, setPayment] = useState('')
     const [address, setAddress] = useState('')
     const [city, setCity] = useState('')
     const [stateCode, setStateCode] = useState('')
     const [zip, setZip] = useState('')
     let navigate = useNavigate();
-
-    const handleChange = (e) => {
-        const { name, value} = e.target;
-        setCheckoutData({
-            ...checkoutData,
-            billing_info: {
-                ...checkoutData.billing_info,
-                [name]: value}
-        });
-        console.log(checkoutData.billing_info)
-    };
 
     const handleCheckout = async (event) => {
         event.preventDefault()

@@ -18,7 +18,7 @@ export default function CartPage(props){
     },[props])
     useEffect(() => {
         const orderBody = props.cart
-        console.log(orderBody)
+        //console.log(orderBody)
         async function getData(){
             try {
                 const response = await fetch(`http://localhost:5000/api/model`, {
@@ -33,7 +33,7 @@ export default function CartPage(props){
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                console.log(data.data);
+                //console.log(data.data);
                 setSuggestedItems(data.data)
             } 
         catch (error) {

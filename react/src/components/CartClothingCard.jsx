@@ -17,7 +17,7 @@ export default function CartClothingCard(props){
     }
     const handleDelete = (event) => {
         event.preventDefault();
-        props.setCart(props.cart.filter((cartItem) => item.id !== cartItem.id))
+        props.setCart(props.cart.filter((cartItem) => item.key !== cartItem.key))
     }
     return(
         <div style={{border: "1px solid black", borderRadius:"20px", margin:"10px", padding:"5px", flexDirection:"column", width:"300px", height:'250px' }}>

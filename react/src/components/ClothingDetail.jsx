@@ -2,7 +2,7 @@ import { useParams } from "react-router"
 
 export default function ClothingDetail(props) {
     const {id} = useParams()
-    const item = props.data.filter((cloth)=>cloth.id === parseInt(id))[0];
+    let item = props.data.filter((cloth)=>cloth.id === parseInt(id))[0];
     const rating = Math.floor(item?.Rating)
 
     let stars=[]
@@ -13,6 +13,7 @@ export default function ClothingDetail(props) {
         stars.push(<img key = {i+10*item.id + (5 - rating)} src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Ic_star_outline_24px.svg/240px-Ic_star_outline_24px.svg.png" style={{height:'24px', width:'24px'}}/>)
     }
     const addToCart = () => {
+        item = {...item, key : Math.random()}
         const newCart = [...props.cart, item]
         props.setCart(newCart);
     }
