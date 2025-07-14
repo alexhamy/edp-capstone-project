@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ClothingCard from "./ClothingCard";
+import CartClothingCard from "./CartClothingCard";
 export default function CartPage(props){
     let navigate = useNavigate()
     // console.log(props.cart)
@@ -48,7 +49,7 @@ export default function CartPage(props){
             <h2>Total: ${total}</h2>
             <button style={{width: '100%'}} onClick= {() => navigate("/checkout")}>Checkout</button>
             <div style={{display:'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows:'repeat(1, 1fr)', gridColumnGap:'0px', gridRowGap:'0px'}}>
-                {props.cart?.map((selected) => {return (<ClothingCard item={selected}/>)})}
+                {props.cart?.map((selected) => {return (<CartClothingCard item={selected} cart={props.cart} setCart={props.setCart}/>)})}
             </div>
             <h2>Consider these items:</h2>
             <div style={{display:'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows:'repeat(1, 1fr)', gridColumnGap:'0px', gridRowGap:'0px'}}>
