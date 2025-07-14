@@ -10,7 +10,7 @@ export default function HomePage(props) {
     useEffect(() => {
         if(featured.length >= 4 && !alreadyRendered){
             let selectedClothes = []
-            console.log(featured)
+            //console.log(featured)
             while(selectedClothes.length < 4){
                 let num = Math.floor(Math.random() * featured.length);
                 if(selectedClothes.indexOf(num) === -1) selectedClothes.push(num);
