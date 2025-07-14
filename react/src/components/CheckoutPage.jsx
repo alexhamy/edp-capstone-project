@@ -34,6 +34,7 @@ export default function CheckoutPage(props) {
 
                 const data = await response.json();
                 console.log(data);
+                alert("Purchase Successful")
                 // Handle post submission logic (like showing a success message)
                 navigate('/')
                 props.setCart([])

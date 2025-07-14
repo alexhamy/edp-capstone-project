@@ -3,11 +3,15 @@ import ClothingCard from "./ClothingCard";
 
 export default function SearchPage(props){
     const filterPredicate = (item) =>{
+        let goodItem = true
         const item_string = `${item.Category} ${item.Material} ${item.Season} ${item.Type}`.toLowerCase()
-        if(item_string.includes(props.searchTerm.toLowerCase())){
-            return true;
-        }
-        return false;
+        const searchArray = props.searchTerm.toLowerCase().split(" ")
+        searchArray.forEach((word) => {
+            if(!item_string.includes(word)){
+                goodItem = false
+            }
+        })
+        return goodItem;
     }
     const [filteredData, setFilteredData] = useState([])
     useEffect(() =>{
